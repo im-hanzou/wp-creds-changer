@@ -95,10 +95,10 @@ class Connect:
                 'wp_user.txt', f"Config Url: {config_url}\nUrl: {url}\nUsername: {user_data['user_login']}\nPassword: peler12@\n")
             if resp.rowcount > 0:
                 self.coloring_print(
-                    f"User {user_data['user_login']} password changed to peler12@", True)
+                    f"User {user_data['user_login']} password changed", True)
             else:
                 self.coloring_print(
-                    f"User {user_data['user_login']} password not changed or already changed to peler12@", True)
+                    f"User {user_data['user_login']} password not changed or already changed", True)
         self.disconnect()
 
 
